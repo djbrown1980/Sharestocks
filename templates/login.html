@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sharestocks - Login</title>
+    <script>
+      
+      function check(){
+        let password = document.getElementById("passwordInput").value
+        let username = document.getElementById("usernameInput").value
+        if (username == "d_j_brown2") {
+          localStorage.loggedInUser = "David Brown"
+        } else if (username == "kc_brown56") {
+          localStorage.loggedInUser = "Kim Brown"
+        } else if (username == "lehoucka34") {
+          localStorage.loggedInUser = "John and Janet Lehoucka"
+        } else if (username == "admin") {
+            localStorage.loggedInUser = "Sharestocks Admin"
+        } else {
+          let incorrectlbl = document.getElementById("incorrectUsernameLbl")
+          incorrectlbl.style.display = 'block'
+          return false;
+        }
+        
+        
+        if (password == "reddragon14#") {
+          return true;
+        } else {
+          
+          let incorrectlbl = document.getElementById("incorrectPasswordLbl")
+          incorrectlbl.style.display = 'block'
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="usernameInput">Username:</label>
+      <input type="text" id="usernameInput" />
+      <br />
+      <label for="passwordInput">Password:</label>
+      <input type="password" id="passwordInput" />
+    </form>
+    <a href="/app" onclick="return check();">LOGIN</a>
+    <p id="incorrectPasswordLbl" style="color: #ff0a0a; display: none; font-family: Verdana">Incorrect password</p>
+    <p id="incorrectUsernameLbl" style="color: #ff0a0a; display: none; font-family: Verdana">Incorrect username</p>
+  </body>
+</html>
